@@ -17,4 +17,4 @@ yarn-error.log
 /.vscode
 .ds_store
 _ide_helper.php
-composer_OLD.lock
+.sqlite
