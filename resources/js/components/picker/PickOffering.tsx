@@ -10,7 +10,7 @@ import { SessionState } from '../../store/session/types'
 import { LoadingState } from '../../store/loading/types'
 import Loading from '../Loading'
 import styled from '../../utils/styledComponents'
-import { getTermCodeRange, termCodeToString, guessCurrentTerm } from '../../utils/helpers'
+import { /* getTermCodeRange, */ termCodeToString, guessCurrentTerm } from '../../utils/helpers'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import SearchInputContainer from '../SearchInputContainer'
 import { User } from '../../store/authedUser/types'
@@ -74,7 +74,7 @@ const PickOffering = ({
 }: Props) => {
   const dispatch = useDispatch()
   const searchQueryRef = useRef<HTMLInputElement>(null)
-  const [term, setTerm] = useLocalStorage('namespot_term', guessCurrentTerm().toString())
+  const [term] = useLocalStorage('namespot_term', guessCurrentTerm().toString())
   const [query, setQuery] = useState('')
   const [recentOfferings] = useRecentOfferings()
 
@@ -95,7 +95,7 @@ const PickOffering = ({
     }))
   }
 
-  const termList = useMemo(() => getTermCodeRange(), [])
+  // const termList = useMemo(() => getTermCodeRange(), [])
 
   const termOfferings = useMemo(() => (Object.values(offerings)
     .filter(offering => offering.term_code === parseInt(term))
