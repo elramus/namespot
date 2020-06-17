@@ -12,10 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class)->create([
-            'first_name' => 'Luke',
-            'last_name' => 'Ramus',
+            'first_name' => 'Demo',
+            'last_name' => 'Website!',
             'role' => 'dev',
-            'cnet_id' => 'dramus',
+            'cnet_id' => 'demo',
         ]);
     }
 }

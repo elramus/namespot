@@ -106,10 +106,10 @@ const Menu = ({ authedUser }: StoreProps) => {
                 <FontAwesomeIcon icon={['far', 'map-marker-alt']} fixedWidth />
                 <p>Rooms</p>
               </Link>
-              <Link to="/students" onClick={() => setOpen(false)}>
+              {/* <Link to="/students" onClick={() => setOpen(false)}>
                 <FontAwesomeIcon icon={['far', 'users']} fixedWidth />
                 <p>Student Body</p>
-              </Link>
+              </Link> */}
             </>
           )}
         </section>
@@ -127,13 +127,13 @@ const Menu = ({ authedUser }: StoreProps) => {
               </Link>
             </>
           )}
-          <a href="/logout" onClick={() => setOpen(false)}>
+          {/* <a href="/logout" onClick={() => setOpen(false)}>
             <FontAwesomeIcon icon={['far', 'sign-out-alt']} fixedWidth />
             <p>Log Out</p>
-          </a>
+          </a> */}
         </section>
         <section className="logo-container">
-          <img src={ucLogo} alt="" />
+          {/* <img src={ucLogo} alt="" /> */}
         </section>
       </Sidebar>
 

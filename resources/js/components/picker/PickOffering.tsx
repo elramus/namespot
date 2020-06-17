@@ -136,13 +136,13 @@ const PickOffering = ({
             ref={searchQueryRef}
           />
         </SearchInputContainer>
-        <select id="term" value={term} onChange={e => setTerm(e.target.value)}>
+        {/* <select id="term" value={term} onChange={e => setTerm(e.target.value)}>
           {termList.map(term => (
             <option key={term} value={term}>
               {termCodeToString(term)}
             </option>
           ))}
-        </select>
+        </select> */}
       </div>
       {recentOfferings.length > 0 && (
         <>

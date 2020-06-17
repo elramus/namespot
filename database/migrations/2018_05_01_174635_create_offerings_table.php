@@ -46,6 +46,7 @@ class CreateOfferingsTable extends Migration
             $table->tinyInteger('is_preserve_room_id')->nullable();
             $table->string('subject', 50)->nullable();
             $table->tinyInteger('use_prefixes')->nullable();
+            $table->string('manually_created_by', 50)->nullable();
         });
     }
 

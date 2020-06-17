@@ -14,7 +14,7 @@ const Container = styled('div')`
 
 const SiteFooter = () => (
   <Container>
-    <p>&copy; {new Date().getFullYear()} The Law School &bull; The University of Chicago &bull; <a href="mailto:helpdesk@law.uchicago.edu">Feedback?</a></p>
+    {/* <p>&copy; {new Date().getFullYear()} The Law School &bull; The University of Chicago &bull; <a href="mailto:helpdesk@law.uchicago.edu">Feedback?</a></p> */}
   </Container>
 )
 
