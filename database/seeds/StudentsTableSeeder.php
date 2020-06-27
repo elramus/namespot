@@ -11,15 +11,38 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Student::class, 350)
-            ->create()
-            ->each(function ($s) {
-                    $offering_ids = UniqueRandomNumbersWithinRange(1, 50, 3);
-                    $s->offerings()->attach([
-                        $offering_ids[0] => ['assigned_seat' => null],
-                        $offering_ids[1] => ['assigned_seat' => null],
-                        $offering_ids[2] => ['assigned_seat' => null],
-                    ]);
-                });
+        $offering = App\Offering::findOrFail(1);
+
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Jean-Luc',
+            'last_name' => 'Picard',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'William',
+            'last_name' => 'Riker',
+            'nickname' => 'Will',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Geordi',
+            'last_name' => 'La Forge',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Tasha',
+            'last_name' => 'Yar',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Worf',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Deanna',
+            'last_name' => 'Troi',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Data',
+        ]), ['is_in_ais' => 1]);
+        $offering->students()->save(factory(App\Student::class)->create([
+            'first_name' => 'Wesley',
+            'last_name' => 'Crusher',
+        ]), ['is_in_ais' => 1]);
     }
 }

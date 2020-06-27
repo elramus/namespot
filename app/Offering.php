@@ -71,20 +71,20 @@ class Offering extends Model
                 ->orWhere('is_in_ais', 1)
                 // Manual addition through the seating chart app
                 ->orWhere('is_namespot_addition', 1);
-            })
+            });
             // Then do any filtering for things that automatically
             // mean we don't want you in the current students list.
             // No withdrawn:
-            ->where(function($q) {
-                $q->where('ais_enrollment_reason', '!=', 'WDRW')
-                  ->orWhereNull('ais_enrollment_reason');
-            })
+            // ->where(function($q) {
+            //     $q->where('ais_enrollment_reason', '!=', 'WDRW')
+            //       ->orWhereNull('ais_enrollment_reason');
+            // });
             // No Test Students:
-            ->where(function($q) {
-                $q->where('full_name', '!=', 'Test Student')
-                  ->orWhereNull('full_name');
-            })
-            ->orderBy('last_name');
+            // ->where(function($q) {
+            //     $q->where('full_name', '!=', 'Test Student')
+            //       ->orWhereNull('full_name');
+            // })
+            // ->orderBy('last_name');
     }
 
     /**

@@ -100,6 +100,7 @@ function safeArray($haystack, $needle): array {
  * with the first letter of each word capitalized.
  */
 function nameCasing($name): string {
+  if (!$name) return '';
   if (strtoupper($name) === $name || strtolower($name) === $name) {
     return ucwords(strtolower($name));
   } else {

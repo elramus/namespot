@@ -23,7 +23,7 @@ class CreateOfferingStudentPivotTable extends Migration
             $table->string('canvas_enrollment_state')->nullable();
             $table->string('canvas_role')->nullable();
             $table->tinyInteger('canvas_role_id')->nullable();
-            $table->tinyInteger('is_in_ais')->nullable();
+            $table->tinyInteger('is_in_ais')->nullable()->default(1);
             $table->string('ais_enrollment_state')->nullable();
             $table->string('ais_enrollment_reason')->nullable();
         });
