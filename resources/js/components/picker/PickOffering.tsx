@@ -84,8 +84,9 @@ const PickOffering = ({
 
   useEffect(() => {
     // Fetch the offerings for this term.
+    // (Demo class created for Autumn 2020)
     if (!session.termOfferingsReceived.includes(parseInt(term))) {
-      dispatch(getOfferingsByTerm(parseInt(term)))
+      dispatch(getOfferingsByTerm(2208))
     }
   }, [dispatch, session.termOfferingsReceived, term])
 
