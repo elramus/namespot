@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             RoomsTableSeeder::class,
             TablesTableSeeder::class,
             StudentsTableSeeder::class,
+            InstructorsTableSeeder::class,
         ]);
     }
 }

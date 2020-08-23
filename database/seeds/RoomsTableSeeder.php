@@ -11,10 +11,9 @@ class RoomsTableSeeder extends Seeder
     */
     public function run()
     {
-        $room = factory(\App\Room::class)->create([
+        factory(\App\Room::class)->create([
             'seat_size' => 100,
             'name' => 'The Bridge',
         ]);
-        $offering = \App\Offering::first();
     }
 }

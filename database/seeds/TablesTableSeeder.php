@@ -15,7 +15,7 @@ class TablesTableSeeder extends Seeder
         $theBridgeTables = [
             [
                 'room_id' => 1,
-                'seat_count' => 5,
+                'seat_count' => 7,
                 'sX' => 7,
                 'sY' => 7,
                 'eX' => 71,
@@ -25,7 +25,7 @@ class TablesTableSeeder extends Seeder
                 'label_position' => 'below',
             ], [
                 'room_id' => 1,
-                'seat_count' => 3,
+                'seat_count' => 4,
                 'sX' => 52,
                 'sY' => 18,
                 'eX' => 26,
@@ -36,13 +36,13 @@ class TablesTableSeeder extends Seeder
             ], [
                 'room_id' => 1,
                 'seat_count' => 2,
-                'sX' => 29,
+                'sX' => 32,
                 'sY' => 35,
-                'eX' => 49,
+                'eX' => 45,
                 'eY' => 35,
                 'qX' => null,
                 'qY' => null,
-                'label_position' => 'below',
+                'label_position' => 'above',
             ], [
                 'room_id' => 1,
                 'seat_count' => 2,

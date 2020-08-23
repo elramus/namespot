@@ -11,15 +11,12 @@ class InstructorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Instructor::class, 10)
-            ->create();
-            // ->each(function ($inst) {
-            //         $num1 = rand(1,10);
-            //         $num2 = rand(1,10);
-            //         while($num1 === $num2):
-            //             $num2 = rand(1,10);
-            //         endwhile;
-            //         $inst->teaches()->attach([$num1,$num2]);
-            //     });
+        $offering = App\Offering::find(1);
+
+        factory(App\Instructor::class, 2)
+            ->create()
+            ->each(function ($inst) use($offering) {
+                $inst->teaches()->attach($offering);
+            });
     }
 }

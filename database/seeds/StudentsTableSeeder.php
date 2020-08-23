@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class StudentsTableSeeder extends Seeder
@@ -13,36 +14,44 @@ class StudentsTableSeeder extends Seeder
     {
         $offering = App\Offering::findOrFail(1);
 
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Jean-Luc',
-            'last_name' => 'Picard',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'William',
-            'last_name' => 'Riker',
-            'nickname' => 'Will',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Geordi',
-            'last_name' => 'La Forge',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Tasha',
-            'last_name' => 'Yar',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Worf',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Deanna',
-            'last_name' => 'Troi',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Data',
-        ]), ['is_in_ais' => 1]);
-        $offering->students()->save(factory(App\Student::class)->create([
-            'first_name' => 'Wesley',
-            'last_name' => 'Crusher',
-        ]), ['is_in_ais' => 1]);
+        $images = [
+            'worf.jpg',
+            'picard.jpg',
+            'laforge.jpg',
+            'troi.jpg',
+            'b_crusher.jpg',
+            'w_crusher.jpg',
+            'riker.jpg',
+            'yar.jpg',
+            'data.jpg',
+            'guinan.jpg',
+            'q.jpg',
+            'barclay.jpg',
+            'hugh.jpg',
+            'galron.jpg',
+            'obrien.jpg',
+            'lwaxana.webp',
+            'ro.webp',
+        ];
+
+        // Build an array of seats to loop through.
+        $seats = [];
+        $tables = App\Table::all();
+        foreach ($tables as $table) {
+            for ($i = 0; $i < $table->seat_count; $i += 1) {
+                $seats[] = "{$table->id}_{$i}";
+            }
+        }
+
+        factory(App\Student::class, 17)
+            ->create()
+            ->each(function($student, $i) use($offering, $images, $seats) {
+                $student->picture = $images[$i];
+                $student->save();
+                $student->offerings()->attach($offering->id, [
+                    'is_in_ais' => 1,
+                    'assigned_seat' => $seats[$i],
+                ]);
+            });
     }
 }

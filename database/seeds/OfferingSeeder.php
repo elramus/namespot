@@ -13,8 +13,8 @@ class OfferingSeeder extends Seeder
     public function run()
     {
         DB::table('offerings')->insert([
-            'long_title' => 'Constitutional Law - DEMO',
-            'term_code' => '2202',
+            'long_title' => 'Seating Chart - DEMO',
+            'term_code' => '2208',
             'room_id' => 1,
         ]);
     }
